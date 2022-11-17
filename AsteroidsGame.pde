@@ -1,5 +1,5 @@
 Spaceship bob = new Spaceship();
-Star [] sky = new Star[300];
+Star [] sky = new Star[700];
 //your variable declarations here
 public void setup()
 {
