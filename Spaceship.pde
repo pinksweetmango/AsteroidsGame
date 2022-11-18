@@ -18,6 +18,6 @@ class Spaceship extends Floater
     //ellipse((float)myCenterX,(float)myCenterY,60,60);
     myCenterX = Math.random()*1401;
     myCenterY = Math.random()*701;
-    myPointDirection = (int)(Math.random()*181);
+    myPointDirection = Math.random()*360;
   }
 }
