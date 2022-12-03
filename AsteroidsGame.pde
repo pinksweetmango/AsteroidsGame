@@ -1,6 +1,5 @@
 Spaceship bob = new Spaceship();
 Star [] sky = new Star[700];
-Asteroid sue = new Asteroid();
 ArrayList <Asteroid> Aster = new ArrayList <Asteroid>();
 //your variable declarations here
 public void setup()
@@ -23,12 +22,10 @@ public void draw()
   for (int i = 0; i < Aster.size(); i++) {
     Aster.get(i).move();
     Aster.get(i).show();
-      if (dist((float)bob.getX(), (float)bob.getY(), (float)Aster.get(i).getX(), (float)Aster.get(i).getY()) <= 20) {
+      if (dist((float)bob.getX(), (float)bob.getY(), (float)Aster.get(i).getX(), (float)Aster.get(i).getY()) <= 10) {
       Aster.remove(i);
       }
   }
-  sue.move();
-  sue.show();
   bob.show();
   bob.move();
 }
