@@ -22,8 +22,10 @@ public void draw()
   for (int i = 0; i < Aster.size(); i++) {
     Aster.get(i).move();
     Aster.get(i).show();
-      if (dist((float)bob.getX(), (float)bob.getY(), (float)Aster.get(i).getX(), (float)Aster.get(i).getY()) <= 10) {
+      if (dist((float)bob.getX(), (float)bob.getY(), (float)Aster.get(i).getX(), (float)Aster.get(i).getY()) <= 25) {
       Aster.remove(i);
+      i--;
+      break;
       }
   }
   bob.show();
@@ -46,4 +48,3 @@ public void keyPressed() {
     bob.accelerate(5);
   }
 }
-
