@@ -1,6 +1,7 @@
 Spaceship bob = new Spaceship();
 Star [] sky = new Star[700];
 ArrayList <Asteroid> Aster = new ArrayList <Asteroid>();
+ArrayList <Bullet> sue = new ArrayList <Bullet>();
 //your variable declarations here
 public void setup()
 {
@@ -22,11 +23,27 @@ public void draw()
   for (int i = 0; i < Aster.size(); i++) {
     Aster.get(i).move();
     Aster.get(i).show();
-      if (dist((float)bob.getX(), (float)bob.getY(), (float)Aster.get(i).getX(), (float)Aster.get(i).getY()) <= 25) {
+    if (dist((float)bob.getX(), (float)bob.getY(), (float)Aster.get(i).getX(), (float)Aster.get(i).getY()) <= 25) {
       Aster.remove(i);
       i--;
       break;
+    }
+  }
+  // for (int i = 0; i < sue.size(); i++) {
+  //possibly just show and more for sue
+  // }
+  for (int j = 0; j < sue.size(); j++) {
+    sue.get(j).move();
+    sue.get(j).show();
+    for (int i = 0; i < Aster.size(); i++) {
+      if (dist((float)sue.get(j).getX(), (float)sue.get(j).getY(), (float)Aster.get(i).getX(), (float)Aster.get(i).getY()) <= 15) {
+        Aster.remove(i);
+        sue.remove(j);
+        i--;
+        j--;
+        break;
       }
+    }
   }
   bob.show();
   bob.move();
@@ -46,5 +63,8 @@ public void keyPressed() {
   // accelerate
   if (keyCode == UP) {
     bob.accelerate(5);
+  }
+  if (keyCode == SHIFT) {
+    sue.add(new Bullet(bob));
   }
 }
